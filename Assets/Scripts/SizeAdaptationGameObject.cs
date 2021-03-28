@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SizeAdaptation : MonoBehaviour
+public class SizeAdaptationGameObject : MonoBehaviour
 {
 
     private float height = 1920;
@@ -19,7 +19,7 @@ public class SizeAdaptation : MonoBehaviour
             {
                 proportionW = Screen.width / width;
             }
-            else 
+            else
             {
                 proportionW = width / Screen.width;
             }
@@ -30,11 +30,11 @@ public class SizeAdaptation : MonoBehaviour
             }
             else
             {
-               proportionH = height / Screen.height;
+                proportionH = height / Screen.height;
             }
-
-            transform.localScale = new Vector3(transform.localScale.x * proportionW, transform.localScale.y * proportionH, transform.localScale.z);
-
         }
+
+        transform.localScale = new Vector3(transform.localScale.x * proportionW, transform.localScale.y * proportionH, transform.localScale.z);
     }
+
 }
