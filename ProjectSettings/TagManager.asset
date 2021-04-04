@@ -6,6 +6,8 @@ TagManager:
   tags:
   - TopWall
   - BotWall
+  - Racquet
+  - Wall
   layers:
   - Default
   - TransparentFX
