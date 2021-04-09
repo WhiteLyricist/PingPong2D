@@ -11,16 +11,17 @@ public class MoveBall : MonoBehaviour
     private float deltaX;
     private float deltaY;
 
-    private float speed;
+    private float startSpeed;
+
+    private float speed = 3f;
 
     private Vector3 InitialVector;
 
     private void Awake()
     {
+        startSpeed = speed;
         deltaX = UnityEngine.Random.Range(-1.0f, 1.0f);
         deltaY = UnityEngine.Random.Range(-1.0f, 1.0f);
-        speed = 3.0f;
-
     }
 
     void Update()
@@ -40,12 +41,14 @@ public class MoveBall : MonoBehaviour
         if (collision.gameObject.tag == "Racquet") 
         {
             deltaY = -deltaY;
+            speed+=0.1f;;
             return;
         }
 
         if (collision.gameObject.tag == "TopWall") 
         {
             OnScore("Top");
+            speed = startSpeed;
             transform.position = new Vector3(0, 0, -1f);
             deltaX = UnityEngine.Random.Range(-1.0f, 1.0f);
             deltaY = UnityEngine.Random.Range(-1.0f, 1.0f);
@@ -54,6 +57,7 @@ public class MoveBall : MonoBehaviour
         if (collision.gameObject.tag == "BotWall") 
         {
             OnScore("Bot");
+            speed = startSpeed;
             transform.position = new Vector3(0, 0, -1f);
             deltaX = UnityEngine.Random.Range(-1.0f, 1.0f);
             deltaY = UnityEngine.Random.Range(-1.0f, 1.0f);
