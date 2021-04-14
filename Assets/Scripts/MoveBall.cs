@@ -19,6 +19,12 @@ public class MoveBall : MonoBehaviour
 
     private void Awake()
     {
+        speed = UnityEngine.Random.Range(2f, 5f);
+        var scale = UnityEngine.Random.Range(0.5f, 1.1f);
+        transform.localScale = new Vector3(scale, scale, scale);
+        Color colorBall;
+        ColorUtility.TryParseHtmlString(ColorBall.ColoraGameBall, out colorBall);
+        GetComponent<SpriteRenderer>().color = colorBall;
         startSpeed = speed;
         deltaX = UnityEngine.Random.Range(-1.0f, 1.0f);
         deltaY = UnityEngine.Random.Range(-1.0f, 1.0f);
@@ -41,7 +47,7 @@ public class MoveBall : MonoBehaviour
         if (collision.gameObject.tag == "Racquet") 
         {
             deltaY = -deltaY;
-            speed+=0.1f;;
+            speed+=0.25f;;
             return;
         }
 
@@ -64,5 +70,4 @@ public class MoveBall : MonoBehaviour
         }
 
     }
-
 }

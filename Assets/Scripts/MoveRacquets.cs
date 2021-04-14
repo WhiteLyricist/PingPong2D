@@ -6,11 +6,11 @@ using UnityEngine;
 public class MoveRacquets : MonoBehaviour
 {
 
-    [SerializeField] private GameObject _top;
+   /// [SerializeField] private GameObject _top;
     [SerializeField] private GameObject _bot;
 
     private Vector3 touch;
-    private float touchX=0f;
+    private float touchX = 0f;
 
     private float direction;
 
@@ -26,19 +26,19 @@ public class MoveRacquets : MonoBehaviour
                 direction = 3f * Mathf.Abs(touch.x) / touch.x;
                 if (touch.x > touchX)
                 {
-                    direction = 10f;
+                    direction = 7f;
                 }
                 else 
                 {
-                    direction = -10f;
+                    direction = -7f;
                 }
                 touchX = touch.x;
-                _top.GetComponent<Rigidbody2D>().velocity = new Vector2(direction, 0);
+             //   _top.GetComponent<Rigidbody2D>().velocity = new Vector2(direction, 0);
                 _bot.GetComponent<Rigidbody2D>().velocity = new Vector2(direction, 0);
             } 
             else
             {
-                _top.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            //    _top.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _bot.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
 

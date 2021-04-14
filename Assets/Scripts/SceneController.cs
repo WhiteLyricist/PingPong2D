@@ -1,9 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
+
+    [SerializeField] private TextMeshProUGUI scoreBotT;
+    [SerializeField] private TextMeshProUGUI scoreTopT;
+    [SerializeField] private Image wonBotT;
+    [SerializeField] private Image wonTopT;
+
+    [SerializeField] private GameObject ball;
 
     private int scoreBot = 0;
     private int scoreTop = 0;
@@ -18,24 +28,41 @@ public class SceneController : MonoBehaviour
     {
         if (side == "Bot") 
         {
-            scoreBot += 1;
+            scoreTop += 1;
+            scoreTopT.text = scoreTop.ToString();
+            if (scoreTop >= 10) 
+            {
+                wonTopT.gameObject.SetActive(true);
+            }
         }
 
         if (side == "Top") 
         {
-            scoreTop += 1;
+            scoreBot += 1;
+            scoreBotT.text = scoreBot.ToString();
+            if (scoreBot >= 10)
+            {
+                wonBotT.gameObject.SetActive(true);
+            }
         }
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator EndGame() 
     {
-        
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene("Menu");
     }
 
     private void OnDestroy()
     {
         MoveBall.OnScore -= Score;
+    }
+
+    public void BackMenu() 
+    {
+        SceneManager.LoadScene("Menu");
     }
 
 }
