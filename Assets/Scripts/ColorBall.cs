@@ -9,9 +9,16 @@ public class ColorBall : MonoBehaviour
     public static string ColoraGameBall
     { get => colorGameBall; }
 
+    private void Start()
+    {
+        colorGameBall = PlayerPrefs.GetString("Color");
+    }
+
     public static void SetColorBall(string color) 
     {
         colorGameBall = color;
+        PlayerPrefs.SetString("Color", color);
+        PlayerPrefs.Save();
     }
 
 }

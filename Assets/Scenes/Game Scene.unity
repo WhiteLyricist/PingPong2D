@@ -1380,8 +1380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreBotT: {fileID: 1653199613}
   scoreTopT: {fileID: 1457104320}
-  wonBotT: {fileID: 0}
-  wonTopT: {fileID: 0}
+  wonBotT: {fileID: 60293417}
+  wonTopT: {fileID: 647515090}
   ball: {fileID: 799970273}
 --- !u!4 &1318428535
 Transform:

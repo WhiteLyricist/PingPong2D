@@ -33,6 +33,8 @@ public class SceneController : MonoBehaviour
             if (scoreTop >= 10) 
             {
                 wonTopT.gameObject.SetActive(true);
+                Destroy(ball);
+                StartCoroutine(EndGame());
             }
         }
 
@@ -43,6 +45,8 @@ public class SceneController : MonoBehaviour
             if (scoreBot >= 10)
             {
                 wonBotT.gameObject.SetActive(true);
+                Destroy(ball);
+                StartCoroutine(EndGame());
             }
         }
         

@@ -13,13 +13,13 @@ public class MoveBall : MonoBehaviour
 
     private float startSpeed;
 
-    private float speed = 3f;
+    private float speed;
 
     private Vector3 InitialVector;
 
     private void Awake()
     {
-        speed = UnityEngine.Random.Range(2f, 5f);
+        speed = UnityEngine.Random.Range(2.5f, 5f);
         var scale = UnityEngine.Random.Range(0.5f, 1.1f);
         transform.localScale = new Vector3(scale, scale, scale);
         Color colorBall;
