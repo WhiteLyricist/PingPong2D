@@ -19,7 +19,6 @@ public class UIController : MonoBehaviour
     public void SetColor(string colorBall) 
     {
         ColorBall.SetColorBall(colorBall);
-
     }
 
 }

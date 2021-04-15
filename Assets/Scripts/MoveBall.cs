@@ -17,11 +17,12 @@ public class MoveBall : MonoBehaviour
 
     private Vector3 InitialVector;
 
-    private void Awake()
+    private void Start()
     {
         speed = UnityEngine.Random.Range(2.5f, 5f);
         var scale = UnityEngine.Random.Range(0.5f, 1.1f);
         transform.localScale = new Vector3(scale, scale, scale);
+        ColorBall.ChangeColor();
         Color colorBall;
         ColorUtility.TryParseHtmlString(ColorBall.ColoraGameBall, out colorBall);
         GetComponent<SpriteRenderer>().color = colorBall;

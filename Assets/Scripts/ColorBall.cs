@@ -5,13 +5,14 @@ using System;
 
 public class ColorBall : MonoBehaviour
 {
-    private static string colorGameBall = "White";
+    private static string colorGameBall;
+
     public static string ColoraGameBall
     { get => colorGameBall; }
-
-    private void Start()
+    
+    public static void ChangeColor()
     {
-        colorGameBall = PlayerPrefs.GetString("Color");
+        colorGameBall = PlayerPrefs.GetString("Color","White");
     }
 
     public static void SetColorBall(string color) 
@@ -20,5 +21,4 @@ public class ColorBall : MonoBehaviour
         PlayerPrefs.SetString("Color", color);
         PlayerPrefs.Save();
     }
-
 }
