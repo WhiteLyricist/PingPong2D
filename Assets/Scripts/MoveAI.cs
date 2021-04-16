@@ -11,6 +11,13 @@ public class MoveAI : MonoBehaviour
     private float posBallY = 0f;
     private float direction;
 
+    Rigidbody2D physics;
+
+    private void Awake()
+    {
+        physics = GetComponent<Rigidbody2D>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -25,11 +32,11 @@ public class MoveAI : MonoBehaviour
                 direction = -3f;
             }
             posBallX = _ball.transform.position.x;
-            GetComponent<Rigidbody2D>().velocity = new Vector2(direction, 0);
+            physics.velocity = new Vector2(direction, 0);
         }
         else 
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            physics.velocity = Vector2.zero;
         }
         posBallY = _ball.transform.position.y;
     }
